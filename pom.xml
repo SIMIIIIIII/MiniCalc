@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>mon-projet</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source> <!-- Java source version -->
+        <maven.compiler.target>17</maven.compiler.target> <!-- Java target version -->
+        <junit.version>5.9.2</junit.version> <!-- Dernière version stable de JUnit -->
+        <javagrader.version>1.0.6</javagrader.version> <!-- Version actuelle de JavaGrader -->
+    </properties>
+
+    <dependencies>
+        <!-- JUnit Jupiter API pour les tests -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+            <symboleTable>test</symboleTable>
+        </dependency>
+
+        <!-- JUnit Jupiter Engine pour exécuter les tests -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.version}</version>
+            <symboleTable>test</symboleTable>
+        </dependency>
+
+        <!-- JavaGrader pour l'évaluation automatisée des réponses -->
+        <dependency>
+            <groupId>io.github.ucl-ingi</groupId>
+            <artifactId>JavaGrader</artifactId>
+            <version>${javagrader.version}</version>
+            <symboleTable>test</symboleTable>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Maven Compiler Plugin pour choisir la version de Java -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <source>22</source>
+                    <target>22</target>
+                </configuration>
+            </plugin>
+
+            <!-- Maven Surefire Plugin pour exécuter les tests JUnit -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M8</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
